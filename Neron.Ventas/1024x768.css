@@ -127,6 +127,46 @@
     flex: 0 0 var(--leftcol-w);
     gap: var(--gap);
   }
+  /* ===========================
+     TABLA TICKET
+     =========================== */
+  
+.ticket-table-modal {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+/* Cabecera oscura como antes */
+.ticket-table-modal thead th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: #1a1f23;
+  color: #fff;
+  text-align: left;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+/* Celdas: sin fondo propio, líneas finas y texto oscuro */
+.ticket-table-modal tbody td {
+  background: transparent;
+  /* ← importante */
+  padding:8px 10px;
+  color: #111;
+  border-bottom: 1px solid rgba(0, 0, 0, .08);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+#modal-modificar .ticket-table-modal tbody tr.selected {
+  background-color: #fff7b3 !important;  /* amarillo pastel suave */
+}
+
 
   /* ===========================
      FAMILIAS

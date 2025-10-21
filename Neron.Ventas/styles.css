@@ -195,6 +195,10 @@ body {
   overflow: auto;
 }
 
+#modal-modificar .ticket-grid {
+  height: 80vh;
+}
+
 .ticket-table {
   width: 100%;
   border-collapse: collapse;
@@ -218,13 +222,16 @@ body {
 /* Celdas: sin fondo propio, líneas finas y texto oscuro */
 .ticket-table tbody td {
   background: transparent;
-  /* ← importante */
-  /* padding:8px 10px;  TAMAÑO CELDAS TICKET */
+  /* padding:8px 10px; */
   color: #111;
   border-bottom: 1px solid rgba(0, 0, 0, .08);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.ticket-table-modal tbody td {
+  padding:8px 10px;
 }
 
 .ticket-table tbody tr:nth-child(odd) {
