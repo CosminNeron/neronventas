@@ -266,7 +266,7 @@ body {
 
 .btn-row {
   display: flex;
-  gap: 10px
+  gap: 10px;
 }
 
 .iconbtn {
@@ -1075,3 +1075,12 @@ body {
   font-weight: 700;
   font-size: 20px;
 }
+
+
+.icon-svg {
+  width: 40px;
+  height: 40px;
+  margin: 0;        /* ← fuera trampas */
+  display: block;
+}
+
