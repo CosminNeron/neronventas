@@ -85,8 +85,8 @@ body {
 }
 
 .sysbtn span {
-  font-weight: 600;
-  font-size: 12px;
+  font-weight: 700;
+  font-size: 13px;
   opacity: .9;
   text-align: center
 }
@@ -303,6 +303,8 @@ body {
    DIV 3: CONTROLS (izq + der)
    =========================== */
 
+
+   
 /* ===========================
    FIX CONTROLES (anula debug)
    =========================== */
@@ -339,12 +341,12 @@ body {
 
 /* contenedor derecho: arriba = grid de 4x2 */
 .control-right-up {
-  /* background-color: yellow;   tu color de debug */
+  background-color: yellow;  
   width: 100%;
-  height: 80%;
+  height: 100%;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  /* 4 columnas */
+  grid-template-columns: repeat(8, 1fr);
+  /* 5 columnas */
   grid-template-rows: repeat(2, 1fr);
   /* 2 filas */
   gap: var(--gap);
@@ -368,13 +370,11 @@ body {
 }
 
 .control-right-down {
-  /* background-color: pink; quítalo si ya no quieres el color debug */
   width: 100%;
   height: 20%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  /* pegado a la derecha */
+  justify-content: flex-start;
   padding: 0 var(--gap);
 }
 
@@ -816,71 +816,66 @@ body {
   padding: 10px;
 }
 
+/* ===========================
+   QTY PAD – versión minimal
+   =========================== */
+
+.qty-grid--simple {
+  display: flex;
+  gap: 12px;
+}
+
+/* BOTONES REDONDOS DE VERDAD */
+.q-round {
+  width: 56px;
+  height: 56px;
+  padding: 0;
+  border-radius: 50%;        /* ← círculo real */
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+
+/* botón de los tres puntitos */
+.q-more {
+  font-size: 26px;
+  line-height: 1;
+}
+
+
 /* contenedor del pad */
 .qtypad {
   display: flex;
+  flex-direction: row;     /* ← CLAVE */
+  align-items: center;
   gap: 12px;
-  width: 100%;
-  align-items: flex-start;
+   font-weight: 700;
 }
+
 
 /* columna izquierda: “×N” arriba y keypad debajo */
 .qtypad-left {
   display: flex;
   flex-direction: column;
-  /* ← clave: en columna */
   gap: 10px;
-  width: 260px;
-  /* ajusta a tu gusto */
 }
+
 
 /* “×N” (display) como pastilla arriba */
 .qty-display {
-  align-self: flex-start;
-  min-width: auto;
-  width: 100%; /* que la pastilla ocupe justo ese ancho */
-  height: 40px;
-  padding: 6px 14px;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-weight: 900;
-  font-size: 24px;
-  background: #0d0f11;
+  align-items: center;  
+  width: auto;
+  min-width: 60px;
+  height: 52px;
+  font-size: 22px;
+  padding: 0 14px;
+  border-radius: 20%;
+  border: 1px solid #d3b46b41;
   color: #fff;
-  border: 1px solid rgba(255, 255, 255, .08);
-  border-radius: 12px;
-}
-
-/* keypad debajo (2,3,4,5,6,C) */
-.qty-grid {
-  display: grid;
-  gap: 10px;
-  align-content: start;
-  grid-template-columns: repeat(3, 64px);
-  /* 3 columnas */
-}
-
-.qty-grid--compact {
-  grid-template-columns: repeat(2, 56px);
-}
-
-/* si lo usas en móvil */
-
-/* ===========================
-   QTY PAD → versión 2 columnas
-   =========================== */
-.qty-grid--2col {
-  grid-template-columns: repeat(2, 64px);
-  justify-content: start;
-  gap: 10px;
-}
-
-/* Botón “×” (opcional, para destacarlo) */
-.q.q-apply {
-  background: var(--accent);
-  color: var(--accent-ink);
-  border-color: rgba(255, 255, 255, .12);
 }
 
 .q.q-apply:hover {
@@ -889,19 +884,20 @@ body {
 
 /* ancho cómodo del bloque izquierdo del pad */
 .qtypad-left {
-  width: max-content;
-  /* o: width: fit-content; */
+  display: flex;
+  flex-direction: row;     /* ← EN LÍNEA */
+  align-items: center;
+  gap: 10px;
+  width: auto;
 }
-
 
 /* botón del keypad */
 .q {
   height: 52px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, .08);
-  background: #2a2f35;
-  color: #fff;
-  font-weight: 800;
+  border-radius: 20%;
+  border: none;
+  background: var(--accent);
+  color: var(--accent-ink);
   cursor: pointer;
   transition: filter var(--trans), transform var(--trans);
 }
@@ -914,50 +910,9 @@ body {
   transform: translateY(1px)
 }
 
-/* botón “C” (clear) */
-.q.q-clear {
-  background: transparent;
-  border-style: dashed;
-  color: #ffb4b4;
-}
-
-.q.q-clear:hover {
-  background: #2a2f35;
-  color: #fff;
-}
-
-/* columna derecha (por si añades algo al lado del pad) */
-.qtypad-right {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-/* mini “pop” cuando cambias la cantidad */
-@keyframes qtyPop {
-  0% {
-    transform: scale(1)
-  }
-
-  50% {
-    transform: scale(1.06)
-  }
-
-  100% {
-    transform: scale(1)
-  }
-}
-
 #qty-display.bump {
   animation: qtyPop 180ms ease-out;
 }
-
-/* (opcional) si no quieres ver el mensaje de ayuda “×N listo …” */
-.qty-hint {
-  display: none !important;
-}
-
 
 /* ===========================
    HEADER ARTÍCULOS (BUSCADOR IZQ + TÍTULO CENTRADO)
