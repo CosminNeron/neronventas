@@ -19,16 +19,47 @@
     <!-- DIV 1: TOOLBAR (FULL WIDTH, SIN SCROLL) -->
     <!-- ===================== -->
     <div class="toolbar" aria-label="Barra superior">
-      <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-door-open"></i><span>Salir</span></button>
-      <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-sliders"></i><span>Opciones</span></button>
-      <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-square-parking"></i><span>Parking</span></button>
-      <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-cash-register"></i><span>Abrir Cajón</span></button>
-      <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-people-arrows"></i><span>Traspaso</span></button>
-      <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-bell-concierge"></i><span>Preparación</span></button>
-      <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-utensils"></i><span>Mesas</span></button>
-      <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-print"></i><span>Imprime</span></button>
-      <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-print"></i><span>Imprime</span></button>
-      <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-print"></i><span>Imprime</span></button>
+      <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/salir.svg" class="icon-svg" alt="Salir">
+  <span>Salir</span>
+</button>
+            <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/opciones.svg" class="icon-svg" alt="Opciones">
+  <span>Opciones</span>
+</button>
+      <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/parking.svg" class="icon-svg" alt="Parking">
+  <span>Parking</span>
+</button>
+
+      <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/cajon.svg" class="icon-svg" alt="Cajón">
+  <span>Cajón</span>
+</button>
+      <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/img_new/Mesa.png" class="icon-svg" alt="Traspaso">
+  <span>Traspaso</span>
+</button>
+      <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/preparacion.svg" class="icon-svg" alt="Preparación">
+  <span>Preparación</span>
+</button>
+      <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/mesas.svg" class="icon-svg" alt="Mesas">
+  <span>Mesas</span>
+</button>
+      <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/tarjeta.svg" class="icon-svg" alt="Tarjeta">
+  <span>Tarjeta</span>
+</button>
+      <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/imprime.svg" class="icon-svg" alt="Imprime">
+  <span>Imprime</span>
+</button>
+            <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/img_new/MonedasImprimir.png" class="icon-svg" alt="Cerrar Venta">
+  <span>Cerrar Venta</span>
+</button>
     </div>
 
     <!-- ====== MAIN GRID (2x2) ====== -->
@@ -66,11 +97,14 @@
 
           <div class="ticket-actions">
             <div class="btn-row">
+
+
               <button class="sysbtn sysbtn--mini sysbtn--accent" id="btn-rapidos">
-                <i class="fa-solid fa-bolt"></i><span>Artículos Rápidos</span>
+                <img src="/img_botones/img_new/Reloj.png" class="icon-svg" alt="ArtRapido"><span>Art.Rápidos</span>
               </button>
+
               <button class="sysbtn sysbtn--mini sysbtn--accent" id="btn-modificar">
-                <span>Modificar</span>
+                <img src="/img_botones/img_new/Lapiz.png" class="icon-svg" alt="Modificar"><span>Modificar</span>
               </button>
             </div>
             <div class="big-total" id="ticket-total">0,00</div>
@@ -135,27 +169,7 @@
         <!-- DIV 3: CONTROLS (IZQ + DER PARA EXTRAS) -->
         <!-- ===================== -->
         <section class="controls" aria-label="Controles y filtros">
-<div class="controls-left">
-  <!-- Qty Pad: display arriba + keypad 3×3 -->
-  <div class="qtypad">
-    <div class="qtypad-left">
-      <!-- Display de cantidad -->
-      <div class="qty-display" id="qty-display" aria-live="polite">
-        ×<span id="qty-value">1</span>
-      </div>
-<div class="qty-grid qty-grid--2col">
-  <button class="q" data-q="2">2</button>
-  <button class="q" data-q="3">3</button>
 
-  <button class="q" data-q="4">4</button>
-  <button class="q" data-q="5">5</button>
-
-  <button class="q q-clear" id="qty-clear" title="Borrar cantidad">C</button>
-  <button class="q q-apply" id="qty-apply" title="Aplicar cantidad">×</button>
-</div>
-    </div>
-  </div>
-</div>
 
 
 
@@ -167,15 +181,73 @@
               <button class="sysbtn sysbtn--accent"><i
                   class="fa-solid fa-money-bill-wave"></i><span>Contado</span></button>
               <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-percent"></i><span>Parcial</span></button>
-              <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-users"></i><span>PAX</span></button>
-              <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-cash-register"></i><span>Caja</span></button>
-              <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-receipt"></i><span>Ticket</span></button>
+                    <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/img_new/EfectivoImprimir.png" class="icon-svg" alt="Contado">
+  <span>Contado</span>
+</button>
+                    <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/img_new/EfectivoImprimir.png" class="icon-svg" alt="Contado">
+  <span>Contado</span>
+</button>
+                    <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/img_new/EfectivoImprimir.png" class="icon-svg" alt="Contado">
+  <span>Contado</span>
+</button>
+                    <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/img_new/EfectivoImprimir.png" class="icon-svg" alt="Contado">
+  <span>Contado</span>
+</button>
+                    <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/img_new/EfectivoImprimir.png" class="icon-svg" alt="Contado">
+  <span>Contado</span>
+</button>
+                    <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/img_new/EfectivoImprimir.png" class="icon-svg" alt="Contado">
+  <span>Contado</span>
+</button>
+                    <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/img_new/EfectivoImprimir.png" class="icon-svg" alt="Contado">
+  <span>Contado</span>
+</button>
+                    <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/img_new/EfectivoImprimir.png" class="icon-svg" alt="Contado">
+  <span>Contado</span>
+</button>
+                    <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/img_new/EfectivoImprimir.png" class="icon-svg" alt="Contado">
+  <span>Contado</span>
+</button>
+      <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/caja.svg" class="icon-svg" alt="Caja">
+  <span>Caja</span>
+</button>
+                    <button class="sysbtn sysbtn--accent">
+  <img src="/img_botones/img_new/Moto.png" class="icon-svg" alt="Reparto">
+  <span>Reparto</span>
+</button>
               <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-qrcode"></i><span>QR</span></button>
               <button class="sysbtn sysbtn--accent"><i class="fa-solid fa-ellipsis"></i><span>Más</span></button>
             </div>
 
-            <div class="control-right-down">
-            </div>
+<div class="control-right-down">
+  <div class="qtypad">
+    <div class="qtypad-left">
+      <!-- <div class="qty-display" id="qty-display">
+        ×<span id="qty-value">1</span>
+      </div> -->
+
+<div class="qty-grid qty-grid--simple">
+  <button class="q q-round" data-q="2">2</button>
+  <button class="q q-round" data-q="3">3</button>
+  <button class="q q-round" data-q="4">4</button>
+  <button class="q q-round" data-q="5">5</button>
+  <button class="q q-round q-more">…</button>
+</div>
+
+    </div>
+  </div>
+</div>
+
           </div>
         </section>
 
