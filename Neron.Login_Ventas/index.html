@@ -30,6 +30,91 @@
                 </ul>
             </div>
         </div>
+        <div id="modal-actualizaciones" class="modal">
+            <div class="modal-content">
+                <div class="cabecera-modal">
+                    <h3>Actualizador Neron</h3>
+                    <button id="btn-cerrar">x</button>
+                </div>
+                <div class="num-licencia-modal">
+                    <p>Número licencia:</p>
+                    <input type="number" disabled class="input-licencia-modal" value="000310528"/>
+                </div>
+                <div class="clave-actualizacion-modal">
+                    <p>Clave de actualización</p>
+                    <input type="text" class="input-clave-modal"/>
+                </div>
+                <div class="modal-btns-div">
+                    <button id="ver-borrar" class="modal-btns">Ver borrar</button>
+                    <button class="modal-btns">Descargar</button>
+                    <button class="modal-btns">Guardar</button>
+                </div>
+                <div>
+                    <div class="keypad">
+                        <div class="keys-modal">
+                            <button>7</button>
+                            <button>8</button>
+                            <button>9</button>
+                            <button>4</button>
+                            <button>5</button>
+                            <button>6</button>
+                            <button>1</button>
+                            <button>2</button>
+                            <button>3</button>
+                            <button>-</button>
+                            <button>0</button>
+                            <button class="clear">C</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal-clave-ver-borrar" class="modal">
+            <div class="modal-clave-ver-borrar-content">
+                <h3>Clave para acceder a Actualizaciones</h3>
+                <input id="input-clave-ver-borrar" type="text"/>
+                <div class="keypad clave-ver-borrar">
+                    <div class="keys">
+                        <button>7</button>
+                        <button>8</button>
+                        <button>9</button>
+                        <button id="btn-cerrar-ver-borrar" class="close">×</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                        <button class="clear">C</button>
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button id="validar-clave-ver-borrar" class="enter">✔</button>
+                        <button>0</button>
+                        <button>-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal-actualizaciones-borrar" class="modal">
+            <div class="modal-actualizaciones-borrar-content">
+                <div>
+                    <ul class="lista-actualizaciones">
+                        <li>1 Oper (Versión Pro)</li>
+                        <li>Backoffice remoto</li>
+                        <li>Factura certificada (TicketBAI / VeriFactu)</li>
+                        <li>Kiosko</li>
+                        <li>Monitor Cocina 1</li>
+                        <li>Control Presencia</li>
+                        <li>Puntos</li>
+                        <li>Reparto Online</li>
+                        <li>Reservas</li>
+                        <li>Tablet 8</li>
+                    </ul>
+                </div>
+                <div class="botones-actualizaciones-borrar">
+                    <button id="btn-salir-actualizaciones-borrar">Salir</button>
+                    <button>Borrar</button>
+                </div>
+            </div>
+        </div>
 
         <!-- CENTRO -->
         <div class="center-panel">
@@ -115,7 +200,7 @@
     </div>
 
     <!-- Script principal -->
-    <script src="/Neron.Login/scripts.js"></script>
+    <script src="./scripts.js"></script>
 </body>
 
 </html>

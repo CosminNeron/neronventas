@@ -139,6 +139,109 @@ body {
   width: fit-content;
 }
 
+.modal{
+  display: none;
+  position: fixed;
+  align-self: center;
+  justify-self: center;
+  height: min-content;
+  width: 25%;
+  min-width: 300px;
+  inset: 0;
+  background: var(--neron-bg);
+  z-index: 9999;
+  border: 1px solid var(--white);
+  border-radius: 10px;
+}
+
+.modal-content{
+  display: flex;
+  flex-direction:column;
+  align-items: center;
+  gap: 10px;
+}
+
+.cabecera-modal, .num-licencia-modal{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-top: 5px;
+}
+
+.clave-actualizacion-modal{
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.modal-btns-div{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+}
+.modal-btns{
+  border-radius: 5px;
+  font-size: small;
+  width: min-content;
+}
+
+.input-licencia-modal{
+height: 15px;
+}
+
+.input-clave-modal{
+  height: 30px;
+}
+#modal-clave-ver-borrar{
+  height: 72%;
+  width: 40%;
+  align-items: center;
+}
+
+.modal-clave-ver-borrar-content{
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+  height:90%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#input-clave-ver-borrar{
+  width: 270px;
+  height: 30px;
+}
+
+.clave-ver-borrar{
+  width:400px;
+}
+
+#modal-actualizaciones-borrar{
+  margin-top: 0px;
+  max-width: 300px;
+}
+
+.modal-actualizaciones-borrar-content{
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  height:90%;
+  margin: 10px;
+}
+
+.botones-actualizaciones-borrar{
+  display: flex;
+  height: 200px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.botones-actualizaciones-borrar button{
+  border-radius: 5px;
+}
 /* --- Aviso de copiado encima del número --- */
 .licencia-numero {
   position: relative;
@@ -259,6 +362,12 @@ body {
   gap: 10px;
 }
 
+.keys-modal {
+  display: grid;
+  grid-template-columns: repeat(3, 60px);
+  gap: 10px;
+}
+
 button {
   background-color: var(--gold);
   border: none;
@@ -272,7 +381,10 @@ button {
   transition: all 0.2s ease;
 }
 
-
+.botones-actualizaciones-borrar button{
+  border-radius: 5px;
+  width: auto !important;
+}
 
 button.close,
 button.clear,
