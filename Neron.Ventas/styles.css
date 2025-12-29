@@ -341,7 +341,7 @@ body {
 
 /* contenedor derecho: arriba = grid de 4x2 */
 .control-right-up {
-  background-color: yellow;  
+  /* background-color: yellow;   */
   width: 100%;
   height: 100%;
   display: grid;
@@ -1039,3 +1039,11 @@ body {
   display: block;
 }
 
+/* Clase para los huecos vacíos */
+.sysbtn.spacer {
+    visibility: hidden;
+    pointer-events: none; /* Para que no se pueda hacer click en el hueco */
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}

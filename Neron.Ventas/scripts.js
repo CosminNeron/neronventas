@@ -509,6 +509,55 @@ function updateSelectedPreview(){
   $selPreview.innerHTML = `<strong>${it.nombre}</strong> — ${it.cantidad} × ${eur(it.punit)}`;
 }
 
+// =========================
+  // ⚙️ CARGAR CONFIGURACIÓN (Lógica Nueva)
+  // =========================
+  
+  // Intentamos leer de localStorage, si no, usamos el DEFAULT_LAYOUT de data.js
+  const savedConfig = localStorage.getItem('neronPosConfig');
+  const APP_CONFIG = savedConfig ? JSON.parse(savedConfig) : DEFAULT_LAYOUT;
+
+  // =========================
+  // 🎨 RENDERIZADOR DE BOTONES
+  // =========================
+  
+  function renderButtons(containerId, keysArray) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = ''; 
+
+    keysArray.forEach(key => {
+      // Si la key es null o no existe en el maestro, ponemos espaciador
+      const item = MASTER_BUTTONS[key];
+      
+      if (!key || !item) {
+        const spacer = document.createElement('div');
+        spacer.className = 'sysbtn spacer'; 
+        container.appendChild(spacer);
+        return;
+      }
+
+      // Crear botón
+      const btn = document.createElement('button');
+      btn.className = 'sysbtn sysbtn--accent';
+      
+      let iconHtml = '';
+      if (item.img) {
+        iconHtml = `<img src="${item.img}" class="icon-svg" alt="${item.label}">`;
+      } else if (item.icon) {
+        iconHtml = `<i class="${item.icon}"></i>`;
+      }
+
+      btn.innerHTML = `${iconHtml}<span>${item.label}</span>`;
+      btn.addEventListener('click', () => handleAction(item.action));
+      
+      container.appendChild(btn);
+    });
+  }
+
+  // Renderizamos usando la configuración cargada
+  renderButtons('toolbar-container', APP_CONFIG.topBar);
+  renderButtons('controls-grid-container', APP_CONFIG.sidePanel);
     
   // 🚀 Init
   randomizeAll();
