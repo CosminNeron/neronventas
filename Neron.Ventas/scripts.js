@@ -1,7 +1,30 @@
+// =========================
+// ⚙️ CARGAR CONFIGURACIÓN (Lógica Nueva)
+// =========================
+const savedConfig = localStorage.getItem('neronPosConfig');
+const APP_CONFIG = savedConfig ? JSON.parse(savedConfig) : DEFAULT_LAYOUT;
+
+// Intentamos leer de localStorage, si no, usamos el DEFAULT_LAYOUT de data.js
 document.addEventListener('DOMContentLoaded', () => {
-  // =========================
+
+  if (isIndexPage()) initIndexPage();
+  if (isOptionsPage()) initOptionsPage();
+});
+
+function isIndexPage() {
+  return !!document.getElementById('toolbar-container'); // o cualquier id único del index
+}
+
+function isOptionsPage() {
+  return !!document.getElementById('botones'); // id único de Opciones.html
+}
+
+function initIndexPage() {
+  // ✅ aquí dentro ya puedes usar addEventListener sin miedo
+   // =========================
   // ⚙️ CONFIG
   // =========================
+
   const CONFIG = {
     familias: 30,
     rangoArticulosPorFamilia: [6, 14],
@@ -509,13 +532,6 @@ function updateSelectedPreview(){
   $selPreview.innerHTML = `<strong>${it.nombre}</strong> — ${it.cantidad} × ${eur(it.punit)}`;
 }
 
-// =========================
-  // ⚙️ CARGAR CONFIGURACIÓN (Lógica Nueva)
-  // =========================
-  
-  // Intentamos leer de localStorage, si no, usamos el DEFAULT_LAYOUT de data.js
-  const savedConfig = localStorage.getItem('neronPosConfig');
-  const APP_CONFIG = savedConfig ? JSON.parse(savedConfig) : DEFAULT_LAYOUT;
 
   // =========================
   // 🎨 RENDERIZADOR DE BOTONES
@@ -549,17 +565,78 @@ function updateSelectedPreview(){
       }
 
       btn.innerHTML = `${iconHtml}<span>${item.label}</span>`;
+      if (key === 'opciones') {
+        btn.addEventListener('click', onClickOpciones);
+      } else {
       btn.addEventListener('click', () => handleAction(item.action));
+    }
       
       container.appendChild(btn);
     });
   }
 
+  function onClickOpciones() {
+  console.log('🛠 OPCIONES pulsado');
+  openOptions(); // o lo que toque
+}
+
+  function openOptions(){
+    window.location.href = './Opciones.html';
+  }
+
   // Renderizamos usando la configuración cargada
+  // =========================
+// 🚀 INIT
+// =========================
+
+  // POS principal
   renderButtons('toolbar-container', APP_CONFIG.topBar);
   renderButtons('controls-grid-container', APP_CONFIG.sidePanel);
-    
-  // 🚀 Init
   randomizeAll();
-});
+  // ...todos los listeners del POS
+}
+
+function initOptionsPage() {
+  // ✅ listeners/logic solo de Opciones
+  const optionsKeys = APP_CONFIG.options ?? DEFAULT_LAYOUT.options;
+  function renderButtons(containerId, keysArray) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    container.innerHTML = ''; 
+
+    keysArray.forEach(key => {
+      // Si la key es null o no existe en el maestro, ponemos espaciador
+      const item = MASTER_BUTTONS[key];
+      
+      if (!key || !item) {
+        const spacer = document.createElement('div');
+        spacer.className = 'sysbtn spacer'; 
+        container.appendChild(spacer);
+        return;
+      }
+
+      // Crear botón
+      const btn = document.createElement('button');
+      btn.className = 'sysbtn sysbtn--accent';
+      
+      let iconHtml = '';
+      if (item.img) {
+        iconHtml = `<img src="${item.img}" class="icon-svg" alt="${item.label}">`;
+      } else if (item.icon) {
+        iconHtml = `<i class="${item.icon}"></i>`;
+      }
+
+      btn.innerHTML = `${iconHtml}<span>${item.label}</span>`;
+      if (key === 'opciones') {
+        btn.addEventListener('click', onClickOpciones);
+      } else {
+      btn.addEventListener('click', () => handleAction(item.action));
+    }
+      
+      container.appendChild(btn);
+    });
+  }
+  renderButtons('botones', optionsKeys);
+}
+
 
